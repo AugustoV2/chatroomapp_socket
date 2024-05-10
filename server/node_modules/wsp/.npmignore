@@ -1,0 +1,13 @@
+*.sh
+.DS_Store
+.vagrant
+node_modules
+log
+heapdump
+npm-debug.log
+docs
+junk
+env-*
+.npmrc
+tag.js
+test
