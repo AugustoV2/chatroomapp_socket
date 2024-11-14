@@ -1,7 +1,8 @@
-// pages/index.js
 'use client';
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
+import { FaGithub } from "react-icons/fa";
+// React Icons import
 
 const socket = io('http://localhost:3001'); // Replace with your server URL
 
@@ -37,6 +38,18 @@ const Index = () => {
     }
   };
 
+  const handleKeyDownUsername = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleSetUsername();
+    }
+  };
+
+  const handleKeyDownMessage = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      sendMessage();
+    }
+  };
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-indigo-600 via-purple-500 to-pink-500 text-white font-sans">
       {!isNameSet ? (
@@ -47,6 +60,7 @@ const Index = () => {
             className="p-3 w-full border-none rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-300 mb-6"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            onKeyDown={handleKeyDownUsername} // Join group on Enter key press
             placeholder="Enter your name"
           />
           <button
@@ -75,6 +89,7 @@ const Index = () => {
               value={newMessage}
               placeholder="Type a message..."
               onChange={(e) => setNewMessage(e.target.value)}
+              onKeyDown={handleKeyDownMessage} // Send message on Enter key press
             />
             <button
               onClick={sendMessage}
@@ -85,6 +100,19 @@ const Index = () => {
           </div>
         </div>
       )}
+
+      {/* Created By Section */}
+      <div className="mt-12 text-white text-sm text-center">
+        <p className="font-semibold text-lg mb-4">Created by <span className="font-bold">Blaaa</span></p>
+        <div className="flex justify-center items-center space-x-3">
+          <a href="https://github.com/your-github-profile" target="_blank" rel="noopener noreferrer">
+            <FaGithub className="text-4xl hover:text-pink-400 transition-all transform hover:scale-110" />
+          </a>
+          {/* You can add more social media icons here in the future */}
+        </div>
+        <p className="mt-4 text-gray-400 text-xs">All Rights Reserved © 2024</p>
+      </div>
+
     </div>
   );
 };
