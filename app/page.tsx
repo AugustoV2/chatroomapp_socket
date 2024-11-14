@@ -105,7 +105,7 @@ const Index = () => {
       <div className="mt-12 text-white text-sm text-center">
         <p className="font-semibold text-lg mb-4">Created by <span className="font-bold">Blaaa</span></p>
         <div className="flex justify-center items-center space-x-3">
-          <a href="https://github.com/your-github-profile" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/AugustoV2" target="_blank" rel="noopener noreferrer">
             <FaGithub className="text-4xl hover:text-pink-400 transition-all transform hover:scale-110" />
           </a>
           {/* You can add more social media icons here in the future */}
